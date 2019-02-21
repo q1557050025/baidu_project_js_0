@@ -22,10 +22,23 @@
         var oResult = document.getElementById("result");
 
         oAddBtn.onclick = function() {
-            var num = number(oFirstNumber.value) + number(oSecondNumber.value)
+            var num = parseInt(oFirstNumber.value) + parseInt(oSecondNumber.value)
             oResult.innerHTML = '运算结果' + num
         }
-
+        oMinusBtn.onclick = function() {
+            var num = parseInt(oFirstNumber.value) - parseInt(oSecondNumber.value)
+            oResult.innerHTML = '运算结果' + num
+        }
+        oTimesBtn.onclick = function() {
+            var num = parseInt(oFirstNumber.value) * parseInt(oSecondNumber.value)
+            oResult.innerHTML = '运算结果' + num
+        }
+        oDivideBtn.onclick = function() {
+            if (oSecondNumber.value != 0) {
+                var num = parseInt(oFirstNumber.value) / parseInt(oSecondNumber.value)
+                oResult.innerHTML = '运算结果' + num
+            }
+        }
     </script>
 </body>
 </html>
