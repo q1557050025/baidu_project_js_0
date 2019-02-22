@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		table {
+			border: solid 1px gray;
+		}
+		td {
+			border: solid 1px gray;
+		}
+	</style>
+</head>
+<body>
+	<table id="tab">
+		
+	</table>
+	<script>
+		oTab = document.getElementById('tab');
+		var myObj = {};
+		for(i=1;i<10;i++){
+			var oTr = document.createElement('tr');
+			oTab.appendChild(oTr);
+			console.log(1);
+			for(j=1;j<10;j++){
+				var oTd = document.createElement('td');
+				oTd.innerHTML = i + "*" + j + "=" + i * j ;
+				oTr.appendChild(oTd);//注意此处用this.Tr获取了oTr;
+			}
+		};
+	</script>
+</body>
+</html>
