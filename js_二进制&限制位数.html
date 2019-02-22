@@ -6,23 +6,23 @@
 </head>
 <body>        
     <input id="dec-number" type="number" placeholder="输入一个十进制非负整数">
+    <input id="bin-bit" type="number" placeholder="输入转化后二进制数字位数">
     <button id="trans-btn">转化为二进制</button>
     <p id="result">运算结果</p>
     <script>
     	var oDecNumber = document.getElementById('dec-number');
     	var oTransBtn = document.getElementById('trans-btn');
     	var oResult = document.getElementById('result');
+        var oBinBit = document.getElementById('bin-bit');
 		function dec2bin() {
     		var num = ''
     // 在这里实现你的转化方法，注意需要判断输入必须为一个非负整数
     		var decNumber = oDecNumber.value;
     		if(decNumber < 0 || Number(decNumber) !== parseInt(decNumber)) {
     			alert("请输入非负整数");
-    			console.log(decNumber);
-    			console.log(parseInt(decNumber));
     		}else{
     			do{
-    				num += decNumber%2;
+    				num = decNumber%2 + num;
     				decNumber = parseInt(decNumber/2);
     			}while(decNumber > 0);
     		}
@@ -31,8 +31,18 @@
 // 实现党点击转化按钮时，将输入的十进制数字转化为二进制，并显示在result的p标签内
 // Some coding
 		oTransBtn.onclick = function() {
-			num = "运算结果为：" + dec2bin();
-			oResult.innerHTML = num;
+			num = dec2bin();
+            if (num.length < oBinBit.value){
+                var len = oBinBit.value - num.length;
+                var k = "" ;
+                for(i=1;i<=len;i++){
+                    k += "0"
+                };
+                oResult.innerHTML = "输出结果为:" + k + num;
+            }else{
+                oResult.innerHTML = "输出结果为:" + num;
+                console.log("数字位数高于限制位数！")
+            };
 		}
     </script>
 </body>

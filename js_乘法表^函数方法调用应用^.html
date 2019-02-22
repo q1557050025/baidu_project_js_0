@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		table {
+			border: solid 1px gray;
+		}
+		td {
+			border: solid 1px gray;
+		}
+	</style>
+</head>
+<body>
+	<table id="tab">
+
+	</table>
+	<script>
+		oTab = document.getElementById('tab');
+		var myObj = {};
+		myObj.addTr = function(){
+			var oTr = document.createElement('tr');
+			oTab.appendChild(oTr);
+			this.Tr = oTr;//此处用this给myObj添加属性Tr，因此addTd函数才得以获取oTr；
+			console.log(1);
+		}
+		myObj.addTd = function() {
+			var oTd = document.createElement('td');
+			oTd.innerHTML = i + "*" + j + "=" + i * j ;
+			this.Tr.appendChild(oTd);//注意此处用this.Tr获取了oTr;
+		}
+		for(i=1;i<10;i++){
+			myObj.addTr();
+			for(j=1;j<10;j++){
+				myObj.addTd();
+			}
+		}
+		console.log(myObj.addTr);
+		console.log(typeof myObj.addTr);
+	</script>
+</body>
+</html>
