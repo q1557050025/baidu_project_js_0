@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数调用</title>
+</head>
+<body>
+	<script>
+		var myObject = {
+			value: 0,
+			increment: function (inc) {
+				this.value += typeof inc === 'number' ? inc : 1;
+			}
+		};
+		myObject.increment();
+		document.writeln(myObject.value);
+		myObject.increment(2);
+		document.writeln(myObject.value);
+	</script>
+</body>
+</html>

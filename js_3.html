@@ -38,6 +38,14 @@
 		x.nickname = 'gg';
 		console.log(stooge.nickname); //此处输出结果为‘gg’，说明引用不会复制对象；
 		var nick = stooge.nickname;
+		//-------------------------
+		console.log('-----------------------')
+		console.log(typeof(flight.number));
+		console.log(typeof(flight.status));
+		console.log(flight.hasOwnProperty('number'));
+		console.log(flight.hasOwnProperty('departure'));
+		var akj = function() {};
+		console.log(akj.prototype);
 	</script>
 </body>
 </html>
