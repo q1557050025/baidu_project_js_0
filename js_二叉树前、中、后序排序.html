@@ -58,6 +58,7 @@
 		        }
 		    }
 		}
+		var z = 0;
 		// 假设id和name均不会重复，根据输入name找到对应的id
 		function findIdByName(name, obj) {
 			for(var i in obj){
@@ -85,7 +86,7 @@
 		// 把这个对象中所有的名字以“前序遍历”的方式全部输出到console中
 		function getListWithDLR(obj){
 			for(var i in obj){
-				if(i === "name"){
+				if(i === "id"){
 					console.log(obj["id"]);
 				}
 				if(typeof obj[i] === "object"){
@@ -94,17 +95,39 @@
 			};
 		}
 		// 把这个对象中所有的名字以“中序遍历”的方式全部输出到console中
-		function getListWithLDR() {
-			
+		function getListWithLDR(obj) {
+			var j = 0;
+			var k = 1;
+			for(var i in obj){
+				if(typeof obj[i] === "object"){
+					getListWithLDR(obj[i]);
+					j++;
+					if(k === 1){
+						console.log(obj["id"]);
+						k --;
+					}
+				}
+			};
+			if(j === 0){
+				console.log(obj["id"]);
+			}
 		}
-
 		// 把这个对象中所有的名字以“后序遍历”的方式全部输出到console中
-		function getListWithLRD() {
-
+		
+		function getListWithLRD(obj) {
+			for(var i in obj){
+				if(typeof obj[i] === "object"){
+					getListWithLRD(obj[i]);
+				}
+			};
+			console.log(obj["id"]);
 		}
 		getListWithDLR(tree);
 		findIdByName("Lee", tree);
+		getListWithLRD(tree);
 		findNameById(1, tree);
+		getListWithLDR(tree);
+
 	</script>
 </body>
 </html>
