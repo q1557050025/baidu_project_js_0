@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#wrap {
+			background: url(images/erik_ce204002.jpg) no-repeat;
+			width: 480px;
+			height: 480px;
+			background-position: 0px -0px;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap"></div>
+	<script>
+		oWrap = document.getElementById('wrap');
+		var i = 17;
+		setInterval(function(){
+			i += 1; 
+			a = Math.floor(i/17);
+			console.log(i%17);
+			switch(a%2){
+				case 0 :
+					oWrap.style.backgroundPosition = "0" + "px" + " " + -480 * (i%17) + "px";
+					break
+				case 1 :
+					oWrap.style.backgroundPosition =  "0" + "px" + " " + -480 * (16-i%17) + "px";
+					break
+			}
+		},40)
+	</script>
+</body>
+</html>
