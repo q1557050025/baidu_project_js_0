@@ -6,7 +6,6 @@
 </head>
 <body>
 	<script>
-
 		var tree = {
 		    "id": 0,
 		    "name": "root",
@@ -15,7 +14,7 @@
 		        "name": "Simon",
 		        "left": {
 		            "id": 3,
-		            "name": "Carl",
+		            "name": "Carl1",
 		            "left": {
 		                "id": 7,
 		                "name": "Lee",
@@ -47,11 +46,11 @@
 		        "name": "right",
 		        "left": {
 		            "id": 5,
-		            "name": "Carl",
+		            "name": "Carl2",
 		        },
 		        "right": {
 		            "id": 6,
-		            "name": "Carl",
+		            "name": "Carl3",
 		            "right": {
 		                "id": 10,
 		                "name": "Kai"
@@ -59,6 +58,31 @@
 		        }
 		    }
 		}
+		// 假设id和name均不会重复，根据输入name找到对应的id
+		function findIdByName(name, obj) {
+			for(var i in obj){
+				if(i === "name" && obj["name"] === name){
+					console.log(name + "的ID为" + obj["id"]);
+				}
+				if(typeof obj[i] === "object"){
+					findIdByName(name, obj[i]);
+				}
+			};
+		};
+
+		// 假设id和name均不会重复，根据输入id找到对应的name
+		function findNameById(id, obj) {
+			for(var i in obj){
+				if(i === "id" && obj["id"] === id){
+					console.log(id + "的name为" + obj["name"]);
+				}
+				if(typeof obj[i] === "object"){
+					findNameById(id, obj[i]);
+				}
+			};
+		}
+
+		// 把这个对象中所有的名字以“前序遍历”的方式全部输出到console中
 		function getListWithDLR(obj){
 			for(var i in obj){
 				if(i === "name"){
@@ -68,9 +92,19 @@
 					getListWithDLR(obj[i]);
 				}
 			};
-			document.write(obj["id"]);
+		}
+		// 把这个对象中所有的名字以“中序遍历”的方式全部输出到console中
+		function getListWithLDR() {
+			
+		}
+
+		// 把这个对象中所有的名字以“后序遍历”的方式全部输出到console中
+		function getListWithLRD() {
+
 		}
 		getListWithDLR(tree);
+		findIdByName("Lee", tree);
+		findNameById(1, tree);
 	</script>
 </body>
 </html>

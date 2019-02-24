@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+
+		var tree = {
+		    "id": 0,
+		    "name": "root",
+		    "left": {
+		        "id": 1,
+		        "name": "Simon"
+		    }, 
+		    "right": {
+		        "id": 2,
+		        "name": "Carl"
+		    }
+		}
+		function getListWithDLR(obj){
+			for(var i in obj){
+				if(i === "name"){
+					console.log(obj["id"]);
+				}
+				if(typeof obj[i] === "object"){
+					getListWithDLR(obj[i]);
+				}				
+			};
+			if(typeof obj === "object")
+			document.write(obj["id"]);
+		}
+		getListWithDLR(tree);
+	</script>
+</body>
+</html>
