@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var arr = [43, 54, 4, -4, 84, 100, 58, 27, 140];
+		arr1 = arr.sort(function(a,b){
+			return a-b;
+		});
+		console.log(arr1);
+		arr2 = arr.sort(function(a,b){
+			return b-a;
+		});
+		console.log(arr2);
+		var arr3 = ['apple', 'dog', 'cat', 'car', 'zoo', 'orange', 'airplane'];
+		arr4 = arr3.sort();
+		console.log("arr4:"+arr4);
+		arr5 = arr3.sort().reverse();
+		console.log(arr5);
+		var arr6 = [[10, 14], [16, 60], [7, 44], [26, 35], [22, 63]];
+		arr7 = arr6.sort(function(a,b){
+			return a[1] - b[1];
+		})
+		console.log(arr7);
+		var arr11 = [
+		    {
+		        id: 1,
+		        name: 'candy',
+		        value: 40
+		    }, {
+		        id: 2,
+		        name: 'Simon',
+		        value: 50
+		    }, {
+		        id: 3,
+		        name: 'Tony',
+		        value: 45
+		    }, {
+		        id: 4,
+		        name: 'Annie',
+		        value: 60
+		    }
+		];
+		arr12 = arr11.sort(function(a,b){
+			return a.value - b.value;
+		})
+		console.log(arr12);
+	</script>
+</body>
+</html>
